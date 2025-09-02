@@ -191,6 +191,13 @@ def komut_api():
         "not": "✨ Cevaplar birleştirildi, attribution temizlendi ve tek gönderim hazırlandı"
     }
     return pretty_json_response(result)
+@app.route("/", methods=["GET"])
+def root():
+    """API ana endpoint: sadece yapımcı bilgisini gösterir."""
+    return pretty_json_response({
+        "yapimci": YAPIMCI_TEXT,
+        "not": "Keneviz VIP API çalışıyor ✅"
+    })
 
 if __name__ == "__main__":
     print("✅ Başlatılıyor: http://127.0.0.1:5000/komut?cmd=yapayzeka&text=Merhaba")
